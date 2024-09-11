@@ -25,8 +25,7 @@ namespace _01_ConnectionMode
                                         Integrated Security=True;
                                         Initial Catalog=SportShop;
                                         Connect Timeout=3;
-                                        Encrypt=False;
-                                        ";
+                                        Encrypt=False;";
 
                                         
                                         
@@ -90,10 +89,6 @@ namespace _01_ConnectionMode
 
             reader.Close();
             #endregion
-
-
-
-
 
             sqlConnection.Close();
         }

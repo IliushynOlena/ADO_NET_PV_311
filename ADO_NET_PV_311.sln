@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01_ConnectionMode", "01_ConnectionMode\01_ConnectionMode.csproj", "{75CB9AB2-5F78-47BF-B314-D7635587E6BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01_ConnectionMode", "01_ConnectionMode\01_ConnectionMode.csproj", "{75CB9AB2-5F78-47BF-B314-D7635587E6BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02_CRUD_Interface", "02_CRUD_Interface\02_CRUD_Interface.csproj", "{86E3059E-D03D-41EF-B1FF-C8304FF2BE08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{75CB9AB2-5F78-47BF-B314-D7635587E6BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75CB9AB2-5F78-47BF-B314-D7635587E6BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75CB9AB2-5F78-47BF-B314-D7635587E6BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86E3059E-D03D-41EF-B1FF-C8304FF2BE08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86E3059E-D03D-41EF-B1FF-C8304FF2BE08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86E3059E-D03D-41EF-B1FF-C8304FF2BE08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86E3059E-D03D-41EF-B1FF-C8304FF2BE08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
