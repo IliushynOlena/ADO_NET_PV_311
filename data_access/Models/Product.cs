@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _02_CRUD_Interface
+namespace data_access.Models
 {
     public class Product
     {
