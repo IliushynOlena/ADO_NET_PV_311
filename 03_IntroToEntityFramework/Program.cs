@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _03_IntroToEntityFramework.Entities;
+using System;
 using System.Linq;
 
 namespace _03_IntroToEntityFramework

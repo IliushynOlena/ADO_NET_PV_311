@@ -1,8 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using _03_IntroToEntityFramework.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,7 +35,7 @@ namespace _03_IntroToEntityFramework
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            //Initialization
+            //Initialization - Seeder
             modelBuilder.Entity<Airplane>().HasData(new Airplane[]
             {
                 new Airplane { Id = 1,   Model = "AN 225", MaxPassangers = 300 },
@@ -75,55 +73,6 @@ namespace _03_IntroToEntityFramework
                 },
             });
         }
-
-    }
-    //Entities
-    [Table("Passangers")]
-    public class Client
-    {
-        //Primary key naming : Id/id/ID/EntitiName+ Id
-        public int Id { get; set; }
-        [Required, MaxLength(100)]
-        [Column("FirstName")]
-        public string Name { get; set; }
-        [Required, MaxLength(50)]
-        public string Email { get; set; }
-        public DateTime? Birthday { get; set; }
-        //Relationship type : many to many (*......*)
-        public ICollection<Flight> Flights { get; set; }
-
-    }
-
-    public class Airplane
-    {
-        
-        public int Id { get; set; }
-        [Required]//null => not null
-        [MaxLength(100)]        
-        public string Model { get; set; }
-        public int MaxPassangers { get; set; }
-        //Relationship type : one to many (1......*)
-        public ICollection<Flight> Flights { get; set; }
-      
-
-    }
-    public class Flight
-    {
-        [Key]//set primary key
-        public int Number { get; set; }
-     
-        public DateTime ArrivalTime { get; set; }
-        public DateTime DepartureTime { get; set; }
-        [Required, MaxLength(100)]
-        public string ArrivalCity { get; set; }
-        [Required, MaxLength(100)]
-        public string DepartureCity { get; set; }
-        //Relationship type : one to many (1......*)
-        public Airplane Airplane { get; set; }
-        //Foreight key naming : RelatedEntityName + RelatedEntityPrimaryKeyName
-        public int AirplaneId { get; set; }//foreight key
-        //Relationship type : many to many (*......*)
-        public ICollection<Client> Clients { get; set; }
 
     }
 }
