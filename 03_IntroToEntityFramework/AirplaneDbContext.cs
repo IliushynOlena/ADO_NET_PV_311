@@ -35,8 +35,45 @@ namespace _03_IntroToEntityFramework
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            //Initialization - Seeder
-            modelBuilder.Entity<Airplane>().HasData(new Airplane[]
+            //Validation 
+            //Fluent API configuration 
+            modelBuilder.Entity<Airplane>()
+                .Property(a => a.Model)
+                .HasMaxLength(100)
+                .IsRequired();
+
+            modelBuilder.Entity<Client>().ToTable("Passangers");
+            modelBuilder.Entity<Client>().Property(c=>c.Name)
+                .IsRequired()
+                .HasMaxLength(100)
+                .HasColumnName("FirstName");
+            modelBuilder.Entity<Client>().Property(c => c.Email)
+                .IsRequired()
+                .HasMaxLength(50);
+
+            modelBuilder.Entity<Flight>().HasKey(f => f.Number);//set primary key
+            modelBuilder.Entity<Flight>()
+                .Property(f => f.DepartureCity)
+                .HasMaxLength(100)
+                .IsRequired();
+            modelBuilder.Entity<Flight>()
+                .Property(f => f.ArrivalCity)
+                .HasMaxLength(100)
+                .IsRequired();
+            //Navigation properties
+            modelBuilder.Entity<Airplane>()
+                .HasMany(a => a.Flights)
+                .WithOne(f => f.Airplane)
+                .HasForeignKey(f => f.AirplaneId);
+
+            modelBuilder.Entity<Client>()
+                .HasMany(c => c.Flights)
+                .WithMany(f => f.Clients);
+
+
+
+          //Initialization - Seeder
+          modelBuilder.Entity<Airplane>().HasData(new Airplane[]
             {
                 new Airplane { Id = 1,   Model = "AN 225", MaxPassangers = 300 },
                 new Airplane { Id = 2,   Model = "Mria", MaxPassangers = 100 },
