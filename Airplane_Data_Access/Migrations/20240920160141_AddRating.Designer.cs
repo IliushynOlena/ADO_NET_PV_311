@@ -6,12 +6,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using _03_IntroToEntityFramework;
+using Airplane_Data_Access;
 
 namespace _03_IntroToEntityFramework.Migrations
 {
     [DbContext(typeof(AirplaneDbContext))]
-    [Migration("20240920155000_Inititial")]
-    partial class Inititial
+    [Migration("20240920160141_AddRating")]
+    partial class AddRating
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -96,6 +97,9 @@ namespace _03_IntroToEntityFramework.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)")
                         .HasColumnName("FirstName");
+
+                    b.Property<int?>("Rating")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
